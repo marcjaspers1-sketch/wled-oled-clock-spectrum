@@ -43,3 +43,8 @@ jobs:
 
       - name: Build
         run: platformio run -d WLED -e ci
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: wled-oled-clock-spectrum
+          path: WLED/.pio/build/ci/firmware.bin
