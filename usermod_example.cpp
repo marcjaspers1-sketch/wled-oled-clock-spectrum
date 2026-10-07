@@ -56,7 +56,7 @@ public:
 
     um_data_t *audioData = nullptr;
 
-    if (UsermodManager.getUMData(&audioData, USERMOD_ID_AUDIOREACTIVE)) {
+    if (UsermodManager::getUMData(&audioData, USERMOD_ID_AUDIOREACTIVE)) {
 
       if (audioData &&
           audioData->u_data &&
