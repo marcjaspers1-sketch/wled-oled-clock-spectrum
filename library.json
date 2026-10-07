@@ -1,7 +1,10 @@
 {
-  "name": "wled-usermod-example",
+  "name": "wled-oled-clock-spectrum",
   "build": {
     "libArchive": false
   },
-  "dependencies": {}
+  "dependencies": {
+    "olikraus/U8g2": "^2.36.5"
+  }
 }
+  
