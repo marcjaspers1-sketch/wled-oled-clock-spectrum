@@ -1,4 +1,4 @@
-.#include "wled.h"
+#include "wled.h"
 #include <Wire.h>
 #include <U8g2lib.h>
 
