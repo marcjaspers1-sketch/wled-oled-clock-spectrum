@@ -19,6 +19,10 @@ public:
 
     oled.begin();
     oled.clearBuffer();
+
+    oled.setFont(u8g2_font_6x10_tr);
+    oled.drawStr(25, 30, "OLED OK");
+
     oled.sendBuffer();
   }
 
@@ -47,24 +51,37 @@ public:
 
 
     // =========================
-    // SPECTRUM
+    // AUDIO REACTIVE SPECTRUM
     // =========================
 
-    if (um_data && um_data->u_data && um_data->u_data[2]) {
+    um_data_t *audioData = nullptr;
 
-      uint8_t *fft = (uint8_t *)um_data->u_data[2];
+    if (usermods.getUMData(&audioData, USERMOD_ID_AUDIOREACTIVE)) {
 
-      for (int i = 0; i < 16; i++) {
+      if (audioData &&
+          audioData->u_data &&
+          audioData->u_data[2]) {
 
-        int barHeight = fft[i] / 5;
+        uint8_t *fftChannels =
+            (uint8_t *)audioData->u_data[2];
 
-        if (barHeight > 47)
-          barHeight = 47;
+        for (int i = 0; i < 16; i++) {
 
-        int x = i * 8;
+          int barHeight = fftChannels[i] / 5;
 
-        if (barHeight > 0) {
-          oled.drawBox(x, 63 - barHeight, 6, barHeight);
+          if (barHeight > 47)
+            barHeight = 47;
+
+          int x = i * 8;
+
+          if (barHeight > 0) {
+            oled.drawBox(
+                x,
+                63 - barHeight,
+                6,
+                barHeight
+            );
+          }
         }
       }
     }
