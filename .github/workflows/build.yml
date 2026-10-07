@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: wled/WLED
-          ref: 0.16.0
+          ref: v0.16.1
           path: WLED
           persist-credentials: false
 
