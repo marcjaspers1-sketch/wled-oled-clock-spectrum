@@ -45,5 +45,3 @@ public:
 
 static OledClockSpectrum oledClockSpectrum;
 REGISTER_USERMOD(oledClockSpectrum);
-
-Je gebruikt het gratis abonnement
